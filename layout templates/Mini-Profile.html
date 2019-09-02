@@ -1,0 +1,31 @@
+<!-- BEGIN MINI PROFILE -->
+<div class="$[miniprofile_class]">
+
+    {if !$[user.is_guest] && $[user.avatar]}
+        $[user.avatar]
+    {/if}
+
+    <div class="mini-profile__user">
+        <p class="mini-profile__user-name">$[user]</p>
+        <p class="mini-profile__user-group">
+            {if $[user.is_guest]}
+                <span class="mini-profile__user-info">Guest</span>
+            {else}
+                {if $[user.group]}
+                    <span class="mini-profile__user-info">$[user.group.name]</span>
+                {elseif $[user.rank]}
+                    <span class="mini-profile__user-info">$[user.rank.name]</span>
+                {/if}
+                <span class="mini-profile__user-info">@$[user.username]</span>
+                <span class="mini-profile__user-info{if $[user.is_online]} mini-profile__user-info--online{/if}">
+                    {if $[user.is_online]}
+                        <i class="fal fa-check-circle" aria-hidden="true"></i> Currently Online
+                    {else}
+                        <i class="fal fa-clock" aria-hidden="true"></i> Last Online $[user.last_online]
+                    {/if}
+                </span>
+            {/if}
+        </p>
+    </div>
+</div>
+<!-- END MINI PROFILE -->

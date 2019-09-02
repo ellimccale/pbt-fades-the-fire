@@ -1,0 +1,29 @@
+<!-- BEGIN FOLLOWING CONTAINER -->
+<div class="show-user__container">
+
+    <!-- BEGIN FOLLOWING HEAD -->
+    <div class="content-box content-box--first">
+        <p>
+            {if $[total_following]}
+                This member is following $[following_link]. Their activity is displayed below.
+            {else}
+                This member is not following any other members.
+            {/if}
+        </p>
+    </div>
+    <!-- END FOLLOWING HEAD -->
+
+    <!-- BEGIN FOLLOWING LIST -->
+    <div class="content-box">
+        <table class="following list">
+            <tbody class="$[activity_list_class]">
+                $[activity_list]
+            </tbody>
+        </table>
+
+        $[more_button]
+    </div>
+    <!-- END FOLLOWING LIST -->
+
+</div>
+<!-- END FOLLOWING CONTAINER -->

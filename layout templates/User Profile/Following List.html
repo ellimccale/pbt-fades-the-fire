@@ -1,0 +1,26 @@
+{foreach $[activity]}
+
+    <!-- BEGIN ACTIVITY -->
+    <tr>
+        <td class="main">
+            $[activity.user] $[activity.text]
+        </td>
+        <td class="time-container">
+            $[activity.date]
+        </td>
+    </tr>
+    <!-- END ACTIVITY -->
+
+{/foreach}
+
+{if !$[activity]}
+
+    <!-- BEGIN NO ACTIVITY -->
+    <tr>
+        <td class="empty-result-message" colspan="2">
+            There is no activity to display.
+        </td>
+    </tr>
+    <!-- END NO ACTIVITY -->
+
+{/if}

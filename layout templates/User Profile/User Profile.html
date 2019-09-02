@@ -1,0 +1,137 @@
+<!-- BEGIN USER PROFILE -->
+<div class="container show-user">
+
+    <!-- BEGIN TITLE BAR -->
+    <div class="title-bar">
+        <h2>$[user.name] (@$[user.username])</h2>
+    </div>
+    <!-- END TITLE BAR -->
+
+    <!-- BEGIN TABS -->
+    <div class="ui-tabMenu">
+        <ul class="ui-helper-clearfix">
+            {foreach $[menu]}<li{if $[menu.active]} class="ui-active"{/if}><a href="$[menu.href]">$[menu.text]</a></li>{/foreach}
+        </ul>
+    </div>
+    <!-- END TABS -->
+
+    <!-- BEGIN CONTENT -->
+    <div class="content">
+
+        <!-- BEGIN USER PROFILE -->
+        <div class="show-user__profile">
+
+            {if $[user.avatar]}
+                $[user.avatar]
+            {/if}
+
+            <div class="show-user__user">
+                <p class="show-user__user-name">$[user.name]</p>
+                <p class="show-user__user-group">
+                    {if $[user.group]}
+                        <span class="show-user__user-info">$[user.group.name]</span>
+                    {else}
+                        <span class="show-user__user-info">$[user.rank.name]</span>
+                    {/if}
+                    <span class="show-user__user-info">@$[user.username]</span>
+                    <span class="show-user__user-info{if $[user.is_online]} show-user__user-info--online{/if}">
+                        {if $[user.is_online]}
+                            <i class="fal fa-check-circle" aria-hidden="true"></i> Currently Online
+                        {else}
+                            <i class="fal fa-clock" aria-hidden="true"></i> Last Online $[user.last_online]
+                        {/if}
+                    </span>
+                </p>
+            </div>
+
+            <div class="show-user__controls">
+
+                {if $[edit_profile_button]}
+                    <a href="$[edit_profile_button.href]" class="$[edit_profile_button.class]" title="Edit Profile">
+                        <i class="fal fa-edit" aria-hidden="true"></i>
+                    </a>
+                {/if}
+
+                <!-- Do not show these buttons if the user is viewing their own profile -->
+                {if $[user.id] != $[current_user.id]}
+                    <a href="/user/%24[user.id]?monetarydonation&view=1" class="button" title="Send Donation">
+                        <i class="fal fa-money-bill-wave" aria-hidden="true"></i>
+                    </a>
+
+                    {if $[send_message_button]}
+                        <a href="$[send_message_button.href]" class="$[send_message_button.class]" title="Send Message">
+                            <i class="fal fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    {/if}
+
+                    $[follow_button]
+
+                    <!-- Do not show options on admin account -->
+                    {if $[user.id] != 1}
+                        $[options]
+                    {/if}
+                {/if}
+
+            </div>
+        </div>
+        <!-- END USER PROFILE -->
+
+        <!-- BEGIN TAB CONTENT -->
+        <div class="ui-helper-clearfix">
+            $[content]
+        </div>
+        <!-- END TAB CONTENT -->
+
+    </div>
+    <!-- END CONTENT -->
+
+</div>
+<!-- END USER PROFILE -->
+
+<script>
+$(function() {
+    // Build follow button with icons
+    (function buildFollowButton() {
+        function buildFollowButton() {
+            var $followButton = $('.follow_button');
+            var buttonContent = '';
+
+            /**
+             * If the current user is already following the user they're viewing,
+             * we want to show the "Unfollow" button.
+             */
+            if ($followButton.text() === 'Unfollow') {
+                $followButton.attr('title', 'Unfollow User');
+                buttonContent += '<i class="fal fa-user-times" aria-hidden="true"></i>';
+            } else { // Otherwise, show the "Follow" button
+                $followButton.attr('title', 'Follow User');
+                buttonContent += '<i class="fal fa-user-plus" aria-hidden="true"></i>';
+            }
+
+            $followButton.html(buttonContent);
+        }
+
+        buildFollowButton();
+
+        /**
+         * This is needed because the ajax that updates this button overwrites the
+         * button content with `new_button_text`, so we have to wait until it's done.
+         */
+        $(document).ajaxComplete(function(event, xhr, settings) {
+            if (settings.url === proboards.routeMap.follow_user) {
+                buildFollowButton();
+            }
+        });
+    })();
+
+    // Remove empty custom fields
+    (function removeEmptyWrapper() {
+        var $customFields = $('.show-user__field-wrapper, .show-user__bio');
+
+        if ( !$.trim($customFields.html()).length ) {
+            $customFields.parent('.show-user__info').append('<p>No character information to display. If this is your profile, why not fill it out?</p>');
+            $customFields.remove();
+        }
+    })();
+});
+</script>

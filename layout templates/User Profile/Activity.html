@@ -1,0 +1,34 @@
+<!-- BEGIN ACTIVITY CONTAINER -->
+<div class="show-user__container">
+
+    <!-- BEGIN STATUS -->
+    <div class="content-box content-box--first">
+        {if $[can.set_status]}
+            $[form.header]
+            <table>
+                <tr>
+                    <td id="status-input-box">$[form.update.input]</td>
+                    <td id="status-update-box">$[form.submit.button]</td>
+                </tr>
+            </table>
+            $[form.footer]
+        {else}
+            <p>This member's activity is displayed below.</p>
+        {/if}
+    </div>
+    <!-- END STATUS -->
+
+    <!-- BEGIN ACTIVITY LIST -->
+    <div class="content-box">
+        <table class="activity list">
+            <tbody class="$[activity_list_class]">
+                $[activity_list]
+            </tbody>
+        </table>
+
+        $[more_button]
+    </div>
+    <!-- END ACTIVITY LIST -->
+
+</div>
+<!-- END ACTIVITY CONTAINER -->

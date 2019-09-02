@@ -1,0 +1,45 @@
+{foreach $[conversation]}
+
+    <!-- BEGIN CONVERSATIONS -->
+    <tr id="$[conversation.content_id]" class="$[conversation.content_class]">
+        <td class="main clickable">
+            <div class="name">
+                $[conversation.icons.new]
+                <span class="link target" title="$[conversation.short_content]">$[conversation]</span>
+                $[conversation.labels]
+            </div>
+            {if $[outbox]}
+                Sent to $[conversation.recipients] $[conversation.first_message.created_on]
+            {else}
+                From $[conversation.created_by] $[conversation.first_message.created_on]
+            {/if}
+        </td>
+        <td class="checkbox clickable">$[conversation.checkbox]</td>
+        <td class="pagination">
+            {if $[conversation.pagination]}<div class="ui-micro-pagination">$[conversation.pagination]</div>{/if}
+        </td>
+        <td class="replies clickable">
+            <span>$[conversation.replies]</span> repl{if $[conversation.num_messages] != 2}ies{else}y{/if}
+        </td>
+        <td class="latest">
+            Last Message from $[conversation.last_message.created_by]<br>
+            $[conversation.last_message.created_on]
+        </td>
+        <td class="avatar last">
+            $[conversation.last_message.created_by.avatar_small]
+        </td>
+    </tr>
+    <tr class="spacer"><td colspan="6"></td></tr>
+    <!-- END CONVERSATIONS -->
+
+{/foreach}
+
+{if !$[conversation]}
+
+    <!-- BEGIN NO CONVERSATIONS -->
+    <tr class="conversation item item--no-conversations">
+        <td class="center" colspan="6">No messages were found</td>
+    </tr>
+    <!-- END NO CONVERSATIONS -->
+
+{/if}

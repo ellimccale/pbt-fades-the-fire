@@ -1,0 +1,65 @@
+<!-- BEGIN SUMMARY -->
+$[form.header]
+
+<div class="show-user__summary">
+
+    <!-- BEGIN USER AVATAR -->
+    <div class="show-user__big-avatar" title="$[user.name]"{foreach $[user.custom_field]}{if $[user.custom_field.name] == "Avatar"} style="background-image: url($[user.custom_field.value]);"{/if}{/foreach}>
+        {if $[user.warning.level] > 0}
+            <div class="show-user__warning" title="User Warning: $[user.warning.level]%" style="width: $[user.warning.level]%">
+                <span class="show-user__warning-number">$[user.warning.level]%</span>
+            </div>
+        {/if}
+    </div>
+    <!-- END USER AVATAR -->
+
+    <div class="show-user__summary-col">
+
+        <!-- BEGIN USER STATS -->
+        <div class="show-user__stats">
+            <div class="show-user__stats-col">
+                <p><span class="num">$[user.posts]</span><br> Post{if $[user.posts] != 1}s{/if}</p>
+            </div>
+            <div class="show-user__stats-col">
+                <p><span class="num">$[user.likes]</span><br> Like{if $[user.likes] != 1}s{/if}</p>
+            </div>
+            <div class="show-user__stats-col">
+                <p><span class="money_symbol num"></span><span class="money_amount num"></span><br> <span class="money_text"></span></p>
+            </div>
+        </div>
+        <!-- END USER STATS -->
+
+        <!-- BEGIN USER INFO -->
+        <div class="show-user__info">
+            <div class="show-user__field-wrapper">
+                {foreach $[user.custom_field]}
+                    {if $[user.custom_field.name] == "Played By" || $[user.custom_field.name] == "Age" || $[user.custom_field.name] == "Pronouns" || $[user.custom_field.name] == "Orientation" || $[user.custom_field.name] == "Race" }
+                        <div class="show-user__field">
+                            <span class="show-user__field-name">$[user.custom_field.name]</span>
+                            <span class="show-user__field-value">$[user.custom_field.value]</span>
+                        </div>
+                    {/if}
+                {/foreach}
+            </div>
+            <div class="show-user__bio">
+                {foreach $[user.custom_field]}
+                    {if $[user.custom_field.name] == "Biography"}
+                        <p class="show-user__bio-field">$[user.custom_field.value]</p>
+                    {/if}
+                    {if $[user.custom_field.name] == "Character Application"}
+                        <a href="$[user.custom_field.value]" target="_parent" class="show-user__bio-link">$[user.custom_field.name]</a>
+                    {/if}
+                    {if $[user.custom_field.name] == "Character Tracker"}
+                        <a href="$[user.custom_field.value]" target="_parent" class="show-user__bio-link">$[user.custom_field.name]</a>
+                    {/if}
+                {/foreach}
+            </div>
+        </div>
+        <!-- END USER INFO -->
+
+    </div>
+
+</div>
+
+$[form.footer]
+<!-- END SUMMARY -->

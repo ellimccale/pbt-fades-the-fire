@@ -1,0 +1,51 @@
+<!-- BEGIN MESSAGES CONTAINER -->
+<div class="container messages">
+
+    <!-- BEGIN TITLE BAR -->
+    <div class="title-bar">
+        {if $[reply_button]}
+            <ul class="controls"><li>$[reply_button]</li></ul>
+        {/if}
+
+        <h2>$[conversation.subject]</h2>
+    </div>
+    <!-- END TITLE BAR -->
+
+    <!-- BEGIN CONTROL BAR -->
+    <div class="control-bar ui-helper-clearfix $[scroll_class]">
+        $[search]
+
+        <div class="controls">
+            $[action_menu]
+        </div>
+
+        $[pagination]
+    </div>
+    <!-- END CONTROL BAR -->
+
+    <!-- BEGIN MESSAGE LIST -->
+    <div class="content">
+        <div class="participants ui-helper-clearfix">
+            $[labels]
+            <div>Participants: $[participants]</div>
+        </div>
+
+        <table role="presentation">
+            <tbody class="$[list_class]">
+                $[message_list]
+            </tbody>
+        </table>
+
+        {if !$[quick_reply]}
+            {if $[bottom_reply_button]}
+                <div class="reply_button pad-all-double">$[bottom_reply_button]<br class="clear" /></div>
+            {/if}
+        {/if}
+
+    </div>
+    <!-- END MESSAGE LIST -->
+
+</div>
+<!-- END MESSAGES CONTAINER -->
+
+$[quick_reply]

@@ -1,0 +1,66 @@
+{foreach $[message]}
+
+    <!-- BEGIN MESSAGES -->
+    <tr id="$[message.content_id]" class="$[message.content_class]">
+        <td>
+            <table>
+                <tr class="content-row">
+                    <td class="left-panel">
+                        <div class="user-big-avatar" title="$[message.created_by.name]"{foreach $[message.created_by.mini_custom_field]}{if $[message.created_by.mini_custom_field.name] == "Avatar"} style="background-image: url($[message.created_by.mini_custom_field.value]);"{/if}{/foreach}>
+                            {if $[message.created_by.warning.level] > 0}
+                                <div class="user-warning" title="User Warning: $[message.created_by.warning.level]%" style="width: $[message.created_by.warning.level]%">
+                                    <span class="user-warning__number">$[message.created_by.warning.level]%</span>
+                                </div>
+                            {/if}
+                        </div>
+                    </td>
+                    <td class="content">
+                        $[message.created_by.miniprofile]
+                        <div class="article">
+                            <div class="content-head ui-helper-clearfix">
+                                <div class="info">
+                                    <span class="date">
+                                        <i class="fal fa-clock" aria-hidden="true"></i>
+                                        Sent $[message.created_on]
+                                    </span>
+                                    {if $[message.how_posted]}
+                                        <span class="post-method">via $[message.how_posted]</span>
+                                    {/if}
+                                </div>
+                                <div class="controls">
+                                    {if $[message.quote_button]}
+                                        <a href="$[message.quote_button.href]" class="$[message.quote_button.class]" title="Quote">
+                                            <i class="fal fa-quote-right" aria-hidden="true"></i>
+                                        </a>
+                                    {/if}
+                                    $[message.select_options]
+                                </div>
+                            </div>
+                            <div class="message">$[message.body]</div>
+                            {if $[message.created_by.signature]}
+                                <div class="foot">
+                                    <div class="signature">$[message.created_by.signature]</div>
+                                </div>
+                            {/if}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="spacer"><td></td></tr>
+    <!-- END MESSAGES -->
+
+{/foreach}
+
+{if !$[message]}
+
+    <!-- BEGIN NO MESSAGES -->
+    <tr class="message item item--no-messages">
+        <td class="content center">
+            <div class="message">No messages were found.</div>
+        </td>
+    </tr>
+    <!-- END NO MESSAGES -->
+
+{/if}

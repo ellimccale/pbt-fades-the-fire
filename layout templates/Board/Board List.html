@@ -1,0 +1,95 @@
+{foreach $[board]}
+    {if !$[board.is_redirect]}
+
+        <!-- BEGIN NON-REDIRECT BOARDS -->
+        <!--
+          NOTE: The following statement should match the IDs of categories with image
+                boards. To apply multiple boards, use the "or" operator:
+                board.category_id == 2 || board.category_id == 3
+          -->
+        {if $[board.category_id] == 2}
+
+            <!-- BEGIN IMAGE BOARDS -->
+            <div id="$[board.content_id]" class="$[board.content_class] item--has-image">
+                <div class="image"></div>
+                <div class="main">
+                    <p class="link">$[board]</p>
+                    <p class="recent">
+                        {if $[board.posts] > 0}
+                            {if $[board.last_thread]}
+                                $[board.last_thread.recent_link]<br>
+                                <span class="latest">by $[board.last_thread.last_post.created_by]</span><br>
+                                <span class="latest date">$[board.last_thread.last_post.created_on]</span>
+                            {/if}
+                        {else}
+                            <span class="latest">No posts have been made on this board.</span>
+                        {/if}
+                    </p>
+                    $[board.last_thread.created_by.avatar_medium]
+                    <div class="description"><!-- This is a placeholder for the Board Description Images plugin --></div>
+                </div>
+            </div>
+            <!-- END IMAGE BOARDS -->
+
+        {else}
+
+            <!-- BEGIN DEFAULT BOARDS -->
+            <div id="$[board.content_id]" class="$[board.content_class]">
+                <div class="main">
+                    <p class="link">$[board]</p>
+                    <p class="recent">
+                        {if $[board.posts] > 0}
+                            {if $[board.last_thread]}
+                                <span class="latest">$[board.last_thread.recent_link]</span><br>
+                                <span class="latest">by $[board.last_thread.last_post.created_by] <span class="date">$[board.last_thread.last_post.created_on]</span></span>
+                            {/if}
+                        {else}
+                            <span class="latest">No posts have been made on this board.</span>
+                        {/if}
+                    </p>
+                </div>
+                {if $[board.description] || $[board.sub_board]}
+                    <div class="desc">
+                        {if $[board.sub_board]}
+                            <p class="sub-boards">
+                                {foreach $[board.sub_board]}<a href="$[board.sub_board.href]">$[board.sub_board.name]</a>{/foreach}
+                            </p>
+                        {/if}
+                        {if $[board.description]}
+                            <p>$[board.description]</p>
+                        {/if}
+                    </div>
+                {/if}
+            </div>
+            <!-- END DEFAULT BOARDS -->
+
+        {/if}
+        <!-- END NON-REDIRECT BOARDS -->
+
+    {else}
+
+        <!-- BEGIN REDIRECT BOARDS -->
+        <div id="$[board.content_id]" class="$[board.content_class]">
+            <div class="main">
+                <p class="link">$[board]</p>
+            </div>
+            <div class="desc">
+                <p>$[board.description]</p>
+            </div>
+        </div>
+        <!-- END REDIRECT BOARDS -->
+
+    {/if}
+{/foreach}
+
+{if !$[board]}
+
+    <!-- BEGIN NO BOARDS -->
+    <div class="board item item--no-boards">
+        <div class="desc">
+            <p>No boards were found.</p>
+        </div>
+    </div>
+    <!-- END NO BOARDS -->
+
+{/if}

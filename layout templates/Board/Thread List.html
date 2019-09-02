@@ -1,0 +1,48 @@
+{foreach $[thread]}
+
+    <!-- BEGIN THREADS -->
+    <tr id="$[thread.content_id]" class="$[thread.content_class]">
+        <td class="main clickable">
+            <div class="name">
+                $[thread.icons.new]
+                <span class="link target" title="$[thread.short_content]">$[thread]</span>
+                $[thread.labels]
+            </div>
+            <div class="js-thread-description"><!-- This is a placeholder for the Thread Descriptions plugin --></div>
+            by $[thread.created_by] $[thread.created_on]
+        </td>
+        <td class="checkbox clickable">$[thread.checkbox]</td>
+        <td class="icons">
+            <span class="control-icons">
+                $[thread.icons.poll]
+                $[thread.icons.bookmark]
+                $[thread.icons.lock]
+            </span>
+            {if $[thread.pagination]}<div class="ui-micro-pagination">$[thread.pagination]</div>{/if}
+        </td>
+        <td class="replies-views">
+            <span>$[thread.replies_count]</span> repl{if $[thread.num_posts] != 2}ies{else}y{/if}<br>
+            <span>$[thread.views]</span> view{if $[thread.views] != 1}s{/if}
+        </td>
+        <td class="latest">
+            Last Post by $[thread.last_post.created_by]<br>
+            $[thread.last_post.created_on]
+        </td>
+        <td class="avatar last">
+            $[thread.last_post.created_by.avatar_small]
+        </td>
+    </tr>
+    <tr class="spacer"><td colspan="6"></td></tr>
+    <!-- END THREADS -->
+
+{/foreach}
+
+{if !$[thread]}
+
+    <!-- BEGIN NO THREADS -->
+    <tr class="thread item item--no-threads">
+        <td class="center" colspan="6">No threads were found.</td>
+    </tr>
+    <!-- END NO THREADS -->
+
+{/if}

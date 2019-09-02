@@ -1,0 +1,626 @@
+<!DOCTYPE HTML>
+    $[tag.html.open]
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>$[title] | $[forum.name]</title>
+
+        $[head]
+
+        <!-- Font Awesome Pro -->
+        <script src="https://kit.fontawesome.com/8f2b749415.js"></script>
+
+        <!-- Google Fonts: Cinczel | Lato | PT Serif -->
+        <link href="https://fonts.googleapis.com/css?family=Cinzel:700,900|Lato:400,400i,900,900i|PT+Serif" rel="stylesheet">
+
+        <script>
+        /**
+         * Style My Tooltips
+         * Manos Malihutsakis (http://manos.malihu.gr)
+         * http://manos.malihu.gr/style-my-tooltips-jquery-plugin
+         */
+        !function(m){var o={init:function(s){s=m.extend({tip_follows_cursor:!1,tip_delay_time:700,tip_fade_speed:300,attribute:"title"},s),m("#s-m-t-tooltip").length||m("body").append("<div id='s-m-t-tooltip'><div></div></div>");var i=m("#s-m-t-tooltip");return i.css({position:"absolute",display:"none"}).data("smt-z-index",i.css("z-index")).children("div").css({width:"100%",height:"100%"}),m(document).on("mouseleave",".smt-current-element",function(){var t=m(this);clearTimeout(smtTooltip_delay),i.style_my_tooltips("hide",{speed:t.data("smt-fade-speed")}),m(document).unbind("mousemove",this.tip_mousemove),this.tip_mousemove=void 0,t.removeClass("smt-current-element"),""===t.attr(s.attribute)&&t.attr(s.attribute,t.data("smt-title"))}),this.on("mouseenter",function(t){var o=m(this),e=o.attr(s.attribute);o.addClass("smt-current-element").data({"smt-title":e,"smt-fade-speed":s.tip_fade_speed}).attr(s.attribute,""),i.style_my_tooltips("update",{title:e,speed:s.tip_fade_speed,delay:s.tip_delay_time,tip_follows_cursor:s.tip_follows_cursor}),this.tip_mousemove||(this.tip_mousemove=function(t){!function(t){var o=t.pageX,e=t.pageY;i.style_my_tooltips("position",{smtCursorCoordsX:o,smtCursorCoordsY:e})}(t)},m(document).bind("mousemove",this.tip_mousemove))})},update:function(t){var o=m(this);o.stop().css({display:"none","z-index":o.data("smt-z-index")}).children("div").text(t.title),smtTooltip_delay=setTimeout(function(){o.style_my_tooltips("show",{speed:t.speed,tip_follows_cursor:t.tip_follows_cursor})},t.delay)},show:function(t){m(this).stop().fadeTo(t.speed,1),t.tip_follows_cursor||(m(document).unbind("mousemove",this.tip_mousemove),this.tip_mousemove=void 0)},hide:function(t){m(this).stop().fadeTo(t.speed,0)},position:function(t){var o=m(this),e=m(window).scrollLeft(),s=m(window).scrollTop(),i=o.outerWidth(!0),d=o.outerHeight(!0),r=t.smtCursorCoordsX+i-e,n=t.smtCursorCoordsY+d-s;if(r<=m(window).width()&&r<=m(document).width())o.css("left",t.smtCursorCoordsX);else{var l=t.smtCursorCoordsX-i;e<=l?o.css("left",l):o.css("left",e)}if(n<=m(window).height()&&n<=m(document).height())o.css("top",t.smtCursorCoordsY);else{var u=t.smtCursorCoordsY-d;s<=u?o.css("top",u):o.css("top",s)}}};m.fn.style_my_tooltips=function(t){return o[t]?o[t].apply(this,Array.prototype.slice.call(arguments,1)):"object"!=typeof t&&t?void m.error("Method "+t+" does not exist"):o.init.apply(this,arguments)}}(jQuery);
+        </script>
+
+        <script>
+        /**
+         * Sticky Kit v1.1.2
+         * Leaf Corcoran (http://leafo.net)
+         * https://leafo.net/sticky-kit/
+         */
+        (function(){var b,f;b=this.jQuery||window.jQuery;f=b(window);b.fn.stick_in_parent=function(d){var A,w,J,n,B,K,p,q,k,E,t;null==d&&(d={});t=d.sticky_class;B=d.inner_scrolling;E=d.recalc_every;k=d.parent;q=d.offset_top;p=d.spacer;w=d.bottoming;null==q&&(q=0);null==k&&(k=void 0);null==B&&(B=!0);null==t&&(t="is_stuck");A=b(document);null==w&&(w=!0);J=function(a,d,n,C,F,u,r,G){var v,H,m,D,I,c,g,x,y,z,h,l;if(!a.data("sticky_kit")){a.data("sticky_kit",!0);I=A.height();g=a.parent();null!=k&&(g=g.closest(k));
+        if(!g.length)throw"failed to find stick parent";v=m=!1;(h=null!=p?p&&a.closest(p):b("<div />"))&&h.css("position",a.css("position"));x=function(){var c,f,e;if(!G&&(I=A.height(),c=parseInt(g.css("border-top-width"),10),f=parseInt(g.css("padding-top"),10),d=parseInt(g.css("padding-bottom"),10),n=g.offset().top+c+f,C=g.height(),m&&(v=m=!1,null==p&&(a.insertAfter(h),h.detach()),a.css({position:"",top:"",width:"",bottom:""}).removeClass(t),e=!0),F=a.offset().top-(parseInt(a.css("margin-top"),10)||0)-q,
+        u=a.outerHeight(!0),r=a.css("float"),h&&h.css({width:a.outerWidth(!0),height:u,display:a.css("display"),"vertical-align":a.css("vertical-align"),"float":r}),e))return l()};x();if(u!==C)return D=void 0,c=q,z=E,l=function(){var b,l,e,k;if(!G&&(e=!1,null!=z&&(--z,0>=z&&(z=E,x(),e=!0)),e||A.height()===I||x(),e=f.scrollTop(),null!=D&&(l=e-D),D=e,m?(w&&(k=e+u+c>C+n,v&&!k&&(v=!1,a.css({position:"fixed",bottom:"",top:c}).trigger("sticky_kit:unbottom"))),e<F&&(m=!1,c=q,null==p&&("left"!==r&&"right"!==r||a.insertAfter(h),
+        h.detach()),b={position:"",width:"",top:""},a.css(b).removeClass(t).trigger("sticky_kit:unstick")),B&&(b=f.height(),u+q>b&&!v&&(c-=l,c=Math.max(b-u,c),c=Math.min(q,c),m&&a.css({top:c+"px"})))):e>F&&(m=!0,b={position:"fixed",top:c},b.width="border-box"===a.css("box-sizing")?a.outerWidth()+"px":a.width()+"px",a.css(b).addClass(t),null==p&&(a.after(h),"left"!==r&&"right"!==r||h.append(a)),a.trigger("sticky_kit:stick")),m&&w&&(null==k&&(k=e+u+c>C+n),!v&&k)))return v=!0,"static"===g.css("position")&&g.css({position:"relative"}),
+        a.css({position:"absolute",bottom:d,top:"auto"}).trigger("sticky_kit:bottom")},y=function(){x();return l()},H=function(){G=!0;f.off("touchmove",l);f.off("scroll",l);f.off("resize",y);b(document.body).off("sticky_kit:recalc",y);a.off("sticky_kit:detach",H);a.removeData("sticky_kit");a.css({position:"",bottom:"",top:"",width:""});g.position("position","");if(m)return null==p&&("left"!==r&&"right"!==r||a.insertAfter(h),h.remove()),a.removeClass(t)},f.on("touchmove",l),f.on("scroll",l),f.on("resize",
+        y),b(document.body).on("sticky_kit:recalc",y),a.on("sticky_kit:detach",H),setTimeout(l,0)}};n=0;for(K=this.length;n<K;n++)d=this[n],J(b(d));return this}}).call(this);
+        </script>
+
+        <script>
+        $(function() {
+
+            /**
+             * Create darkened overlay behind jQuery UI dialogs.
+             * Has to be in `<head>` to load in the right order.
+             */
+            (function darkenDialogOverlay() {
+                var open_ref = $.ui.dialog.prototype.open;
+
+                $.ui.dialog.prototype.open = function(){
+                    this.options.modal = true;
+                    open_ref.apply(this, arguments);
+                }
+            })();
+
+            /**
+             * Update the dimensions of some dialogs on open.
+             * Has to be in `<head>` to load in the right order.
+             */
+            (function updateDialogDimensions() {
+
+                function onDialogOpen(selector, options) {
+                    $(document).on('dialogopen', selector, function() {
+                        $(this).dialog(options);
+                    });
+                }
+
+                onDialogOpen('#guests-online', { width: 320 });
+                onDialogOpen('#poll-dialog', { width: 590 });
+                onDialogOpen('#announcement-options', { width: 420, height: 390 });
+                onDialogOpen('#board-notifications', { width: 580 });
+                onDialogOpen('#captcha-container', { width: 470 });
+                onDialogOpen('#groupsDialog', { width: 500, height: 380 });
+                onDialogOpen('#change-users-container', { width: 420 });
+                onDialogOpen('#forward-container', { width: 420 });
+                onDialogOpen('#copy-link-container', { height: 300 });
+                onDialogOpen('#edit_money', { width: 500, height: 375, draggable: true });
+
+            })();
+
+        });
+        </script>
+
+        <script>
+        $(window).load(function() {
+            /**
+             * Remove default styles from thread descriptions plugin.
+             * Has to be on window.load in `head`.
+             */
+            $('.thread_description_page').removeAttr('style');
+        });
+        </script>
+    </head>
+    <body>
+        {if $[maintenance_mode]}
+            <div class="maintenance-header">
+                {if $[can.disable_maintenance]}<p>Finished with maintenance? $[disable_maintenance_link].</p>{/if}
+            </div>
+        {/if}
+
+        <!-- BEGIN FORUM WRAPPER -->
+        <div id="wrapper" class="ui-helper-clearfix">
+
+            <!-- BEGIN NAVIGATION -->
+            <nav role="navigation">
+
+                <!-- Links for screen readers to skip to content -->
+                <a id="navigation-skip" href="#content" accesskey="s" class="visually-hidden" title="Skip Navigation">Skip Navigation</a>
+                <a href="#" accesskey="d" title="Open Menu" onclick="proboards.hotkeys.activate(Keys.d); return false;"></a>
+
+                <div id="navigation-menu">
+                    <ul>
+                        <!--
+                          NOTE: The items in this loop are set under Admin > Settings > Navigation
+                                You will need to update the name of the menu item below if these
+                                settings are changed.
+                          -->
+                        {foreach $[navigation.menu]}
+                            <li{if $[navigation.menu.active]} class="state-active"{/if}>
+                                <a href="$[navigation.menu.href]" title="$[navigation.menu.name]" {if $[navigation.menu.accesskey]} accesskey="$[navigation.menu.accesskey]"{/if}>
+                                    {if $[navigation.menu.name] == 'Home'}
+                                        <i class="fal fa-home" aria-hidden="true"></i>
+                                    {elseif $[navigation.menu.name] == 'Search'}
+                                        <i class="fal fa-search" aria-hidden="true"></i>
+                                    {elseif $[navigation.menu.name] == 'Members'}
+                                        <i class="fal fa-users" aria-hidden="true"></i>
+                                    {elseif $[navigation.menu.name] == 'Admin'}
+                                        <i class="fal fa-cogs" aria-hidden="true"></i>
+                                    {elseif $[navigation.menu.name] == 'Profile'}
+                                        <i class="fal fa-user" aria-hidden="true"></i>
+                                    {elseif $[navigation.menu.name] == 'Messages'}
+                                        <i class="fal fa-envelope" aria-hidden="true"></i>
+                                    {/if}
+                                    {if $[navigation.menu.notification.total]}
+                                        <div class="tip-holder" onclick="window.location='$[navigation.menu.notification.href]'; return false;">
+                                            $[navigation.menu.notification.total]
+                                        </div>
+                                    {/if}
+                                </a>
+                            </li>
+                        {/foreach}
+                        {if !$[current_user.is_guest]}
+                            {if $[participated_threads_link]}
+                                <li>
+                                    <a href="$[participated_threads_link.href]" class="$[participated_threads_link.class]" title="Participated Threads">
+                                        <i class="fal fa-comments-alt" aria-hidden="true"></i>
+                                        <span class="tip-holder">!</span>
+                                    </a>
+                                </li>
+                            {/if}
+                            <li>
+                                <a href="$[logout_link.href]" title="Log out">
+                                    <i class="fal fa-sign-out" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        {else}
+                            <li>
+                                <a href="$[login_link.href]" title="Login">
+                                    <i class="fal fa-sign-in" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="$[register_link.href]" title="Register">
+                                    <i class="fal fa-user-plus" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        {/if}
+                    </ul>
+                </div>
+            </nav>
+            <!-- END NAVIGATION -->
+
+            <!-- BEGIN HEADER -->
+            <header role="banner">
+                <a href="/" target="_parent" title="Home">
+                    <div class="banner-container">
+                        <div class="banner">
+                            <h1 class="banner__head">
+                                F<span class="banner__head--eight">A</span>D<span class="banner__head--eight">E</span>S
+                            </h1>
+                            <h2 class="banner__subhead">the Fire</h2>
+                        </div>
+                    </div>
+                </a>
+            </header>
+            <!-- END HEADER -->
+
+            <!-- Only show Welcome Section on Home page -->
+            {if $[route.name] == 'home'}
+
+                <!-- BEGIN WELCOME SECTION -->
+                <div class="welcome-section">
+
+                    <!-- BEGIN SLIDE NAVIGATION -->
+                    <div class="welcome-section__navigation">
+                        <button id="js-prev-arrow" title="Previous Slide" class="welcome-section__navigation-arrow welcome-section__navigation-arrow--left">
+                            <i class="fal fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                        <button id="js-next-arrow" title="Next Slide" class="welcome-section__navigation-arrow welcome-section__navigation-arrow--right">
+                            <i class="fal fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!-- END SLIDE NAVIGATION -->
+
+                    <!-- BEGIN SLIDES -->
+                    <!-- Containing div needed for slider script -->
+                    <div>
+
+                        <!-- BEGIN SLIDE 1 -->
+                        <div class="welcome-section__slide welcome-section__slide--active">
+
+                            <!-- BEGIN INTRO -->
+                            <div class="welcome-section__col">
+                                <div class="welcome-section__box welcome-section__box--squared">
+                                    $[current_user.avatar_medium]
+                                </div>
+
+                                <div class="welcome-section__text">
+                                    <p><span class="welcome-section__text--prefix">Fades the Fire.</span> Soufflé lemon drops cake icing jelly beans marzipan. Sesame snaps pudding sweet roll chocolate gummies. Fruitcake dragée jelly caramels sugar plum jujubes halvah. Sugar plum jelly beans bear claw donut soufflé. Tootsie roll icing sweet roll. Halvah tootsie roll toffee sweet muffin gummi bears tart sugar plum cheesecake.</p>
+                                </div>
+                            </div>
+                            <!-- END INTRO -->
+
+                            <!-- BEGIN STAFF AVATARS -->
+                            <!--
+                              NOTE: Supports as few as one staff avatar, or as many as five; with five
+                                    avatars, only three "important links" should be used.
+                              -->
+                            <div class="welcome-section__col">
+                                <a href="#" target="_parent" title="Staff" class="welcome-section__box welcome-section__box--narrowed">
+                                    <img src="https://via.placeholder.com/50x70/1f171d/524a4e" alt="">
+                                </a>
+                                <a href="#" target="_parent" title="Staff" class="welcome-section__box welcome-section__box--narrowed">
+                                    <img src="https://via.placeholder.com/50x70/1f171d/524a4e" alt="">
+                                </a>
+                                <a href="#" target="_parent" title="Staff" class="welcome-section__box welcome-section__box--narrowed">
+                                    <img src="https://via.placeholder.com/50x70/1f171d/524a4e" alt="">
+                                </a>
+                            </div>
+                            <!-- END STAFF AVATARS -->
+
+                            <!-- BEGIN IMPORTANT LINKS -->
+                            <!--
+                              NOTE: Supports as few as three links, or as many as six; with six links, only
+                                    one to three staff avatars should be used.
+                              -->
+                            <div class="welcome-section__col welcome-section__col--flex-grow">
+                                <ol class="welcome-section__links">
+                                    <li><a href="#" target="_parent">Post-ironic Dreamcatcher</a></li>
+                                    <li><a href="#" target="_parent">Touseled Locavore</a></li>
+                                    <li><a href="#" target="_parent">Goth Plaid Disrupt Wolf</a></li>
+                                    <li><a href="#" target="_parent">Hashtag Meh</a></li>
+                                    <li><a href="#" target="_parent">Master Cleanse Health</a></li>
+                                    <li><a href="#" target="_parent">Flexitarian Forage</a></li>
+                                </ol>
+                            </div>
+                            <!-- END IMPORTANT LINKS -->
+                        </div>
+                        <!-- END SLIDE 1 -->
+
+                        <!-- BEGIN SLIDE 2 -->
+                        <div class="welcome-section__slide">
+
+                            <!-- BEGIN EVENTS -->
+                            <!-- Update the date below to reflect when the update has been shared -->
+                            <div class="welcome-section__col">
+                                <div class="welcome-section__box welcome-section__box--squared">
+                                    <p class="welcome-section__event">
+                                        <span>28</span><br>
+                                        Aug
+                                    </p>
+                                </div>
+
+                                <div class="welcome-section__text">
+                                    <p><span class="welcome-section__text--prefix">Site Update.</span> Oat cake dragée bonbon jelly beans ice cream pie donut. Carrot cake sugar plum brownie dessert sweet sweet carrot cake chocolate bar lemon drops. Fruitcake chocolate caramels chocolate topping jujubes cheesecake cookie oat cake.Tootsie roll icing sweet roll. Halvah tootsie roll toffee sweet muffin gummi bears tart sugar plum cheesecake.</p>
+                                </div>
+                            </div>
+                            <!-- END EVENTS -->
+
+                            <!-- BEGIN FEATURED -->
+                            <!--
+                              NOTE: Supports as few as two images, or as many as four.
+                                    Two images = 328x70px
+                                    Three images = 206x70px
+                                    Four images = 146x70px
+                              -->
+                            <div class="welcome-section__col welcome-section__col--flex-grow">
+                                <a href="#" target="_blank" title="Featured" class="welcome-section__box">
+                                    <img src="https://via.placeholder.com/206x70/1f171d/524a4e" alt="">
+                                </a>
+                                <a href="#" target="_blank" title="Featured" class="welcome-section__box">
+                                    <img src="https://via.placeholder.com/206x70/1f171d/524a4e" alt="">
+                                </a>
+                                <a href="#" target="_blank" title="Featured" class="welcome-section__box">
+                                    <img src="https://via.placeholder.com/206x70/1f171d/524a4e" alt="">
+                                </a>
+                            </div>
+                            <!-- END FEATURED -->
+
+                        </div>
+                        <!-- END SLIDE 2 -->
+
+                        <!-- BEGIN SLIDE 3 -->
+                        <div class="welcome-section__slide">
+
+                            <!-- BEGIN GROUPS -->
+                            <!-- Supports as many as five groups, or as few as two -->
+                            <div class="welcome-section__group">
+                                <p class="welcome-section__group-title">Group 1 Name</p>
+                                <p class="welcome-section__group-count">
+                                    <span>16</span> Male
+                                    <span>21</span> Female
+                                    <span>37</span> Total
+                                </p>
+                            </div>
+
+                            <div class="welcome-section__group">
+                                <p class="welcome-section__group-title">Group 1 Name</p>
+                                <p class="welcome-section__group-count">
+                                    <span>16</span> Male
+                                    <span>21</span> Female
+                                    <span>37</span> Total
+                                </p>
+                            </div>
+
+                            <div class="welcome-section__group">
+                                <p class="welcome-section__group-title">Group 1 Name</p>
+                                <p class="welcome-section__group-count">
+                                    <span>16</span> Male
+                                    <span>21</span> Female
+                                    <span>37</span> Total
+                                </p>
+                            </div>
+
+                            <div class="welcome-section__group">
+                                <p class="welcome-section__group-title">Group 1 Name</p>
+                                <p class="welcome-section__group-count">
+                                    <span>16</span> Male
+                                    <span>21</span> Female
+                                    <span>37</span> Total
+                                </p>
+                            </div>
+                            <!-- END GROUPS -->
+
+                        </div>
+                        <!-- END SLIDE 3 -->
+
+                    </div>
+                    <!-- END SLIDES -->
+
+                </div>
+                <!-- END WELCOME SECTION -->
+
+            {/if}
+
+            <!-- BEGIN MAIN CONTENT -->
+            <main id="content">
+
+                <!-- Required variable: contains PB scripts and ads -->
+                $[header]
+
+                {if $[notice]}
+
+                    <!-- BEGIN NOTICE CONTAINER -->
+                    <div class="container">
+
+                        <!-- BEGIN TITLE BAR -->
+                        <div class="title-bar">
+                            <h2>$[notice.title]</h2>
+                        </div>
+                        <!-- END TITLE BAR -->
+
+                        <!-- BEGIN NOTICE MESSAGE -->
+                        <div class="content">
+                            $[notice.message]
+                        </div>
+                        <!-- END NOTICE MESSAGE -->
+
+                    </div>
+                    <!-- END NOTICE CONTAINER -->
+
+                {/if}
+
+                {if $[navigation.tree]}
+
+                    <!-- BEGIN NAVIGATION TREE -->
+                    <div id="navigation-tree">
+
+                        $[navigation.tree]
+
+                    </div>
+                    <!-- END NAVIGATION TREE -->
+
+                {/if}
+
+                $[content]
+
+                $[shoutbox]
+
+            </main>
+            <!-- END MAIN CONTENT -->
+
+        </div>
+
+        <!-- Required variable: contains PB scripts and ads -->
+        $[footer]
+
+        <!--
+          NOTE: My attribution may optionally be removed (but it would be nice if it
+                could stay). The Twemoji attribution, however, must remain in tact as
+                long as these emojis are in use.
+          -->
+        <div class="c-footer__copyright">
+            <p>Theme built exclusively for Fades the Fire by <a href="https://ellimccale.com/" target="_blank" rel="noreferrer">elli mccale</a>. Emoji provided by <a href="https://twemoji.twitter.com/content/twemoji-twitter/en.html" target="_blank" rel="noreferrer">Twemoji</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC-BY 4.0</a>.</p>
+        </div>
+
+        <!--
+          NOTE: This link only appears on mobile browsers, and gives users the option to
+                switch to the mobile version of the forum.
+          -->
+        {if $[is_mobile_browser]}
+            <p id="js-switch-link">Switch to the $[mobile_switch_link].</p>
+        {/if}
+
+        <!--
+          NOTE: These are the scripts that control the custom behavior of the theme.
+                Individual behaviors are wrapped in immediately invoked function
+                expressions. Tread carefully, as JavaScript can be delicate.
+                Additional scripts can be found in the layout templates they affect,
+                such as the Thread and Post lists.
+          -->
+        <script>
+        $(function() {
+            // Add lang attribute to `html` element for accessibility
+            (function addLang() {
+                $('html').prop('lang', 'en-us');
+            })();
+
+            // Add classes to ad containers
+            (function containAds() {
+                $('iframe#ad-desktop-top').parent().attr('class', 'ad-banner ad-banner--top');
+                $('iframe#ad-desktop-top[height="50"]').parent().addClass('ad-banner--top-50');
+                $('iframe#ad-desktop-top[height="60"]').parent().addClass('ad-banner--top-60');
+                $('iframe#ad-desktop-top[height="90"]').parent().addClass('ad-banner--top-90');
+                $('iframe#ad-desktop-bottom').parent().attr('class', 'ad-banner ad-banner--bottom');
+            })();
+
+            // Sticky Kit
+            (function stickyKit() {
+                $('#navigation-menu > ul').stick_in_parent();
+
+                function paginateStickyKit() {
+                    $('.user-big-avatar').stick_in_parent({
+                        offset_top: 68,
+                    });
+                }
+
+                paginateStickyKit();
+                pb.events.on('afterSearch', paginateStickyKit);
+            })();
+
+            // Welcome section slider
+            (function welcomeSlides() {
+                var currentSlideIndex = 0;
+
+                var $prevArrow = $('#js-prev-arrow');
+                var $nextArrow = $('#js-next-arrow');
+
+                function slide(index) {
+                    if ($('.welcome-section__slide:eq(' + index + ')').length) {
+                        $('.welcome-section__slide').removeClass('welcome-section__slide--active');
+                        $('.welcome-section__slide:eq(' + index + ')').addClass('welcome-section__slide--active');
+
+                        currentSlideIndex = index;
+
+                        toggleNavigation();
+                    }
+                }
+
+                function prevSlide() {
+                    slide(currentSlideIndex - 1);
+                }
+
+                function nextSlide() {
+                    slide(currentSlideIndex + 1);
+                }
+
+                function toggleNavigation() {
+                    var isFirstSlide = currentSlideIndex === 0;
+                    var isLastSlide = currentSlideIndex === $('.welcome-section__slide').length - 1;
+
+                    if (isFirstSlide) {
+                        $prevArrow.hide();
+                    } else {
+                        $prevArrow.show();
+                    }
+
+                    if (isLastSlide) {
+                        $nextArrow.hide();
+                    } else {
+                        $nextArrow.show();
+                    }
+                }
+
+                toggleNavigation();
+
+                $prevArrow.on('click', prevSlide);
+                $nextArrow.on('click', nextSlide);
+            })();
+
+            // Modifications to footer
+            (function modFooter() {
+                var $footer = $('.c-footer');
+
+                // Append mobile switch link
+                $('#js-switch-link').appendTo($footer);
+            })();
+
+            // Remove double angle quotes from pagination
+            (function removeAngleQuotes() {
+                var $pageNext = $('.ui-pagination-next > a');
+                var $pagePrev = $('.ui-pagination-prev > a');
+
+                $pageNext.text($pageNext.text().replace('»', ''));
+                $pagePrev.text($pagePrev.text().replace('«', ''));
+            })();
+
+            // Replace default icons with Font Awesome glyphs
+            (function replaceDefaultIcons() {
+
+                // Icons that need to be updated on page change
+                function paginateIcons() {
+
+                    // Post/message interaction icons
+                    $('.button .status').parent().attr('title', 'Options');
+                    $('.button .status > img').replaceWith('<i class="fal fa-cog" aria-hidden="true"></i>');
+                    $('.ui-search .search-filters-button').attr('title', 'Search');
+                    $('.ui-search .search-filters-button .icon > img').replaceWith('<i class="fal fa-search" aria-hidden="true"></i>');
+
+                    // Like button icon
+                    function replaceLikeButton() {
+                        var $likeButton = $('a.likes-button');
+
+                        $likeButton.each(function() {
+                            var $this = $(this);
+
+                            if ($this.hasClass('liked')) {
+                                $this.attr('title', 'Unlike');
+                                $this.children('img').replaceWith('<i class="fas fa-heart" aria-hidden="true"></i>');
+                            } else {
+                                $this.attr('title', 'Like');
+                                $this.children('img').replaceWith('<i class="fal fa-heart" aria-hidden="true"></i>');
+                            }
+                        });
+                    }
+
+                    function updateLikeButton() {
+                        var $this = $(this);
+
+                        if ($this.hasClass('liked')) {
+                            $this.attr('title', 'Like');
+                            $this.children('i').removeClass('fas').addClass('fal');
+                        } else {
+                            $this.attr('title', 'Unlike');
+                            $this.children('i').removeClass('fal').addClass('fas');
+                        }
+                    }
+
+                    replaceLikeButton();
+                    $('a.likes-button').on('click', updateLikeButton);
+
+                    // Thread status icons
+                    var lockIcon = '<i class="fal fa-lock" aria-hidden="true"></i>';
+                    var bookmarkIcon = '<i class="fal fa-bookmark" aria-hidden="true"></i>';
+                    var pollIcon = '<i class="fal fa-chart-bar" aria-hidden="true"></i>';
+
+                    function replaceThreadIcons(oldIcon, newIcon, title) {
+                        $(oldIcon).each(function() {
+                            var $this = $(this);
+
+                            if (!$this.find('i').length) {
+                                $this.attr('title', title);
+                                $this.append(newIcon);
+                                $this.find('img').remove();
+                            }
+                        });
+                    }
+
+                    replaceThreadIcons('.lock_icon', lockIcon, 'Locked');
+                    replaceThreadIcons('.bookmark_icon', bookmarkIcon, 'Bookmarked');
+                    replaceThreadIcons('.poll_icon', pollIcon, 'Poll');
+
+                    // Checkmark icon
+                    var $checkContainer = $('.ui-poll .results tr td .select-box');
+
+                    $checkContainer.each(function() {
+                        var $this = $(this);
+
+                        if (!$this.find('i').length) {
+                            $this.append('<i class="fas fa-check" aria-hidden="true"></i>');
+                            $this.children('img').remove();
+                        }
+                    });
+                }
+
+                paginateIcons();
+                pb.events.on('afterSearch', paginateIcons);
+            })();
+
+            // Style My Tooltips
+            (function styleMyTooltips() {
+                function paginateTooltips() {
+                    $('[title]').style_my_tooltips({
+                        tip_follows_cursor: true,
+                        tip_delay_time: 0,
+                        tip_fade_speed: 200,
+                    });
+                }
+
+                paginateTooltips();
+                pb.events.on('afterSearch', paginateTooltips);
+            })();
+        });
+        </script>
+    </body>
+</html>
