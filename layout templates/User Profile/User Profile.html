@@ -54,7 +54,7 @@
 
                 <!-- Do not show these buttons if the user is viewing their own profile -->
                 {if $[user.id] != $[current_user.id]}
-                    <a href="/user/%24[user.id]?monetarydonation&view=1" class="button" title="Send Donation">
+                    <a href="/user/$[user.id]?monetarydonation&view=1" class="button" title="Send Donation">
                         <i class="fal fa-money-bill-wave" aria-hidden="true"></i>
                     </a>
 
