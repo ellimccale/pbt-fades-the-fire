@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-    $[tag.html.open]
+$[tag.html.open]
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>$[title] | $[forum.name]</title>
@@ -12,7 +12,7 @@
         <script src="https://kit.fontawesome.com/8f2b749415.js"></script>
 
         <!-- Google Fonts: Cinczel | Lato | PT Serif -->
-        <link href="https://fonts.googleapis.com/css?family=Cinzel:700,900|Lato:400,400i,900,900i|PT+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel:700,900%7CLato:400,400i,900,900i%7CPT+Serif" rel="stylesheet">
 
         <script>
         /**
@@ -102,11 +102,14 @@
         <div id="wrapper" class="ui-helper-clearfix">
 
             <!-- BEGIN NAVIGATION -->
-            <nav role="navigation">
+            <nav aria-labelledby="primary-navigation">
 
-                <!-- Links for screen readers to skip to content -->
+                <!-- Links for keyboard users to skip to content -->
                 <a id="navigation-skip" href="#content" accesskey="s" class="visually-hidden" title="Skip Navigation">Skip Navigation</a>
                 <a href="#" accesskey="d" title="Open Menu" onclick="proboards.hotkeys.activate(Keys.d); return false;"></a>
+
+                <!-- Label for this navigation; read by screen readers -->
+                <h2 id="primary-navigation" class="visually-hidden">Primary Navigation</h2>
 
                 <div id="navigation-menu">
                     <ul>
@@ -171,7 +174,7 @@
             <!-- END NAVIGATION -->
 
             <!-- BEGIN HEADER -->
-            <header role="banner">
+            <header>
                 <a href="/" target="_parent" title="Home">
                     <div class="banner-container">
                         <div class="banner">
@@ -189,7 +192,10 @@
             {if $[route.name] == 'home'}
 
                 <!-- BEGIN WELCOME SECTION -->
-                <div class="welcome-section">
+                <section class="welcome-section" aria-labelledby="welcome">
+
+                    <!-- Label for this section; read by screen readers -->
+                    <h2 id="welcome" class="visually-hidden">Welcome to Fades the Fire</h2>
 
                     <!-- BEGIN SLIDE NAVIGATION -->
                     <div class="welcome-section__navigation">
@@ -215,7 +221,8 @@
                                     $[current_user.avatar_medium]
                                 </div>
 
-                                <div class="welcome-section__text">
+                                <!-- `aria-label`, `role`, and `tabindex` attributes required to make scrollable content focusable -->
+                                <div class="welcome-section__text" aria-label="An introductory paragraph about this roleplay." role="region" tabindex="0">
                                     <p><span class="welcome-section__text--prefix">Fades the Fire.</span> Soufflé lemon drops cake icing jelly beans marzipan. Sesame snaps pudding sweet roll chocolate gummies. Fruitcake dragée jelly caramels sugar plum jujubes halvah. Sugar plum jelly beans bear claw donut soufflé. Tootsie roll icing sweet roll. Halvah tootsie roll toffee sweet muffin gummi bears tart sugar plum cheesecake.</p>
                                 </div>
                             </div>
@@ -271,7 +278,8 @@
                                     </p>
                                 </div>
 
-                                <div class="welcome-section__text">
+                                <!-- `aria-label`, `role`, and `tabindex` attributes required to make scrollable content focusable -->
+                                <div class="welcome-section__text" aria-label="Recent updates to this site." role="region" tabindex="0">
                                     <p><span class="welcome-section__text--prefix">Site Update.</span> Oat cake dragée bonbon jelly beans ice cream pie donut. Carrot cake sugar plum brownie dessert sweet sweet carrot cake chocolate bar lemon drops. Fruitcake chocolate caramels chocolate topping jujubes cheesecake cookie oat cake.Tootsie roll icing sweet roll. Halvah tootsie roll toffee sweet muffin gummi bears tart sugar plum cheesecake.</p>
                                 </div>
                             </div>
@@ -348,7 +356,7 @@
                     </div>
                     <!-- END SLIDES -->
 
-                </div>
+                </section>
                 <!-- END WELCOME SECTION -->
 
             {/if}
@@ -431,7 +439,7 @@
           -->
         <script>
         $(function() {
-            // Add lang attribute to `html` element for accessibility
+            // Add lang attribute to `<html>` element for accessibility
             (function addLang() {
                 $('html').prop('lang', 'en-us');
             })();
