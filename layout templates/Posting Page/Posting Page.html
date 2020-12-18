@@ -1,13 +1,13 @@
-<!-- BEGIN POSTING CONTAINER -->
+<!-- Posting Container -->
 <div class="container new-area wysiwyg-area">
 
-    <!-- BEGIN TITLE BAR -->
+    <!-- Title Bar -->
     <div class="title-bar">
         <h2>$[title_bar]</h2>
     </div>
-    <!-- END TITLE BAR -->
+    <!-- / Title Bar -->
 
-    <!-- BEGIN POSTING AREA -->
+    <!-- Posting Area -->
     <div class="content">
         $[form.header]
 
@@ -84,23 +84,18 @@
 
         $[form.footer]
     </div>
-    <!-- END POSTING AREA -->
+    <!-- / Posting Area -->
 
 </div>
-<!-- END POSTING CONTAINER -->
+<!-- / Posting Container -->
 
 {if $[summary]}
 
-    <!-- BEGIN SUMMARY CONTAINER -->
+    <!-- Summary -->
     <div class="container $[summary.class]">
-
-        <!-- BEGIN TITLE BAR -->
         <div class="title-bar">
             <h2>$[summary.title]</h2>
         </div>
-        <!-- END TITLE BAR -->
-
-        <!-- BEGIN SUMMARY LIST -->
         <div class="content">
             <table>
                 <tbody class="$[list_class]">
@@ -108,9 +103,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- END SUMMARY LIST -->
-
     </div>
-    <!-- END SUMMARY CONTAINER -->
+    <!-- / Summary -->
 
 {/if}

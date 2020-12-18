@@ -1,7 +1,7 @@
-<!-- BEGIN POSTS CONTAINER -->
+<!-- Post Container -->
 <div class="container posts">
 
-    <!-- BEGIN TITLE BAR -->
+    <!-- Title Bar -->
     <div class="title-bar">
         {if $[reply_button]}
           <ul class="controls"><li>$[reply_button]</li></ul>
@@ -9,9 +9,9 @@
 
         <h2>$[thread.subject]</h2>
     </div>
-    <!-- END TITLE BAR -->
+    <!-- / Title Bar -->
 
-    <!-- BEGIN CONTROL BAR -->
+    <!-- Control Bar -->
     <div class="control-bar ui-helper-clearfix $[scroll_class]">
         $[search]
 
@@ -23,24 +23,18 @@
 
         $[pagination]
     </div>
-    <!-- END CONTROL BAR -->
+    <!-- / Control Bar -->
 
-    <!-- BEGIN POST LIST -->
-
+    <!-- Post List -->
     <!--
       NOTE: the `.cap-bottom` class has been left in place because the Thread
             Descriptions plugin requires it.
       -->
     <div class="content cap-bottom">
-
         {if $[poll]}
-
-            <!-- BEGIN POLL CONTAINER -->
             <div class="ui-poll-container">
                 $[poll]
             </div>
-            <!-- END POLL CONTAINER -->
-
         {/if}
 
         <table role="presentation">
@@ -51,15 +45,14 @@
 
         {if !$[quick_reply]}
             {if $[bottom_reply_button]}
-                <div class="reply_button pad-all-double">$[bottom_reply_button]<br class="clear" /></div>
+                <div class="reply_button pad-all-double">$[bottom_reply_button]<br class="clear"></div>
             {/if}
         {/if}
-
     </div>
-    <!-- END POST LIST -->
+    <!-- / Post List -->
 
 </div>
-<!-- END POSTS CONTAINER -->
+<!-- / Post Container -->
 
 $[quick_reply]
 

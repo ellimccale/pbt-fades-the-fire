@@ -1,6 +1,6 @@
 {foreach $[activity]}
 
-    <!-- BEGIN ACTIVITY -->
+    <!-- Activity -->
     <tr>
         <td class="main">
             $[activity.user] $[activity.text]
@@ -9,18 +9,18 @@
             $[activity.date]
         </td>
     </tr>
-    <!-- END ACTIVITY -->
+    <!-- / Activity -->
 
 {/foreach}
 
 {if !$[activity]}
 
-    <!-- BEGIN NO ACTIVITY -->
+    <!-- No Activity -->
     <tr>
         <td class="empty-result-message" colspan="2">
             There is no activity to display.
         </td>
     </tr>
-    <!-- END NO ACTIVITY -->
+    <!-- / No Activity -->
 
 {/if}

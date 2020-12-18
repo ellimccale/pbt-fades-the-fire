@@ -1,6 +1,6 @@
 {foreach $[message]}
 
-    <!-- BEGIN MESSAGES -->
+    <!-- Messages -->
     <tr id="$[message.content_id]" class="$[message.content_class]">
         <td>
             <table>
@@ -49,18 +49,18 @@
         </td>
     </tr>
     <tr class="spacer"><td></td></tr>
-    <!-- END MESSAGES -->
+    <!-- / Messages -->
 
 {/foreach}
 
 {if !$[message]}
 
-    <!-- BEGIN NO MESSAGES -->
+    <!-- No Messages -->
     <tr class="message item item--no-messages">
         <td class="content center">
             <div class="message">No messages were found.</div>
         </td>
     </tr>
-    <!-- END NO MESSAGES -->
+    <!-- / No Messages -->
 
 {/if}

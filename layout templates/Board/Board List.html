@@ -1,7 +1,7 @@
 {foreach $[board]}
     {if !$[board.is_redirect]}
 
-        <!-- BEGIN NON-REDIRECT BOARDS -->
+        <!-- Non-Redirect Boards -->
         <!--
           NOTE: The following statement should match the IDs of categories with image
                 boards. To apply multiple boards, use the "or" operator:
@@ -9,7 +9,7 @@
           -->
         {if $[board.category_id] == 2}
 
-            <!-- BEGIN IMAGE BOARDS -->
+            <!-- Image Boards -->
             <div id="$[board.content_id]" class="$[board.content_class] item--has-image">
                 <div class="image"></div>
                 <div class="main">
@@ -29,11 +29,11 @@
                     <div class="description"><!-- This is a placeholder for the Board Description Images plugin --></div>
                 </div>
             </div>
-            <!-- END IMAGE BOARDS -->
+            <!-- / Image Boards -->
 
         {else}
 
-            <!-- BEGIN DEFAULT BOARDS -->
+            <!-- Default Boards -->
             <div id="$[board.content_id]" class="$[board.content_class]">
                 <div class="main">
                     <p class="link">$[board]</p>
@@ -61,14 +61,14 @@
                     </div>
                 {/if}
             </div>
-            <!-- END DEFAULT BOARDS -->
+            <!-- Default Boards -->
 
         {/if}
-        <!-- END NON-REDIRECT BOARDS -->
+        <!-- / Non-Redirect Boards -->
 
     {else}
 
-        <!-- BEGIN REDIRECT BOARDS -->
+        <!-- Redirect Boards -->
         <div id="$[board.content_id]" class="$[board.content_class]">
             <div class="main">
                 <p class="link">$[board]</p>
@@ -77,19 +77,19 @@
                 <p>$[board.description]</p>
             </div>
         </div>
-        <!-- END REDIRECT BOARDS -->
+        <!-- / Redirect Boards -->
 
     {/if}
 {/foreach}
 
 {if !$[board]}
 
-    <!-- BEGIN NO BOARDS -->
+    <!-- No Boards -->
     <div class="board item item--no-boards">
         <div class="desc">
             <p>No boards were found.</p>
         </div>
     </div>
-    <!-- END NO BOARDS -->
+    <!-- / No Boards -->
 
 {/if}

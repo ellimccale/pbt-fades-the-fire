@@ -1,6 +1,6 @@
 {foreach $[notification]}
 
-    <!-- BEGIN NOTIFICATIONS -->
+    <!-- Notifications -->
     <tr>
         <td class="main">
             $[notification.new_icon]
@@ -10,18 +10,18 @@
             $[notification.date]
         </td>
     </tr>
-    <!-- END NOTIFICATIONS -->
+    <!-- / Notifications -->
 
 {/foreach}
 
 {if !$[notification]}
 
-    <!-- BEGIN NO NOTIFICATIONS -->
+    <!-- No Notifications -->
     <tr>
         <td colspan="2" class="empty-result-message">
             There are no notifications to display.
         </td>
     </tr>
-    <!-- END NO NOTIFICATIONS -->
+    <!-- / No Notifications -->
 
 {/if}

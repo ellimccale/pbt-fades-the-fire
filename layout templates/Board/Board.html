@@ -1,31 +1,31 @@
 {if $[board.sub_board_list]}
 
-    <!-- BEGIN SUB-BOARD CONTAINER -->
+    <!-- Sub-Board Container -->
     <div class="container boards">
 
-        <!-- BEGIN TITLE BAR -->
+        <!-- Title Bar -->
         <div class="title-bar">
             <h2>Sub-Boards</h2>
         </div>
-        <!-- END TITLE BAR -->
+        <!-- / Title Bar -->
 
-        <!-- BEGIN SUB-BOARD LIST -->
+        <!-- Sub-Board List -->
         <div class="content">
             $[board.sub_board_list]
         </div>
-        <!-- END SUB-BOARD LIST -->
+        <!-- / Sub-Board List -->
 
     </div>
-    <!-- END SUB-BOARD CONTAINER -->
+    <!-- / Sub-Board Container -->
 
 {/if}
 
 {if $[display_thread_list]}
 
-    <!-- BEGIN THREAD CONTAINER -->
+    <!-- Thread Container -->
     <div{if $[viewing_bookmarks]} id="bookmarks"{/if} class="container threads">
 
-        <!-- BEGIN TITLE BAR -->
+        <!-- Title Bar -->
         <div class="title-bar">
             {if $[create_thread_button]}
                 <ul class="controls"><li>$[create_thread_button]</li></ul>
@@ -33,9 +33,9 @@
 
             <h2>$[board.display_name]</h2>
         </div>
-        <!-- END TITLE BAR -->
+        <!-- / Title Bar -->
 
-        <!-- BEGIN CONTROL BAR -->
+        <!-- Control Bar -->
         <div class="control-bar ui-helper-clearfix $[scroll_class]">
             $[search]
 
@@ -49,9 +49,9 @@
 
             $[pagination]
         </div>
-        <!-- END CONTROL BAR -->
+        <!-- / Control Bar -->
 
-        <!-- BEGIN THREAD LIST -->
+        <!-- Thread List -->
         <div class="content">
             <table class="list">
                 <tbody class="$[list_class]">
@@ -59,31 +59,31 @@
                 </tbody>
             </table>
         </div>
-        <!-- END THREAD LIST -->
+        <!-- / Thread List -->
 
     </div>
-    <!-- END THREAD CONTAINER -->
+    <!-- / Thread Container -->
+
+    <script>
+    $(function() {
+        // Move thread description to new position
+        function moveThreadDescriptions() {
+            var $threadDescription = $('.thread_description_list');
+
+            $threadDescription.each(function() {
+                var $this = $(this);
+                var $descriptionText = $this.text();
+                var $newContainer = $this.closest('.main').find('.js-thread-description');
+
+                $this.prev('br').remove();
+                $newContainer.text($descriptionText).addClass('thread-description');
+                $this.remove();
+            });
+        }
+
+        moveThreadDescriptions();
+        pb.events.on('afterSearch', moveThreadDescriptions);
+    });
+    </script>
 
 {/if}
-
-<script>
-$(function() {
-    // Move thread description to new position
-    function moveThreadDescriptions() {
-        var $threadDescription = $('.thread_description_list');
-
-        $threadDescription.each(function() {
-            var $this = $(this);
-            var $descriptionText = $this.text();
-            var $newContainer = $this.closest('.main').find('.js-thread-description');
-
-            $this.prev('br').remove();
-            $newContainer.text($descriptionText).addClass('thread-description');
-            $this.remove();
-        });
-    }
-
-    moveThreadDescriptions();
-    pb.events.on('afterSearch', moveThreadDescriptions);
-});
-</script>

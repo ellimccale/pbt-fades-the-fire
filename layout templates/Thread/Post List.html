@@ -1,6 +1,6 @@
 {foreach $[post]}
 
-    <!-- BEGIN POSTS -->
+    <!-- Posts -->
     <tr id="$[post.content_id]" class="$[post.content_class]{if $[viewing_recent_posts]} recent{/if}">
         <td class="$[post.unblocked_class]">
             <table role="grid">
@@ -73,18 +73,18 @@
         {/if}
     </tr>
     <tr class="spacer"><td></td></tr>
-    <!-- END POSTS -->
+    <!-- / Posts -->
 
 {/foreach}
 
 {if !$[post]}
 
-    <!-- BEGIN NO POSTS -->
+    <!-- No Posts -->
     <tr class="post item item--no-posts">
         <td class="content center">
             <div class="message">No posts were found.</div>
         </td>
     </tr>
-    <!-- END NO POSTS -->
+    <!-- / No Posts -->
 
 {/if}

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 $[tag.html.open]
     <head>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,11 +9,11 @@ $[tag.html.open]
 
         $[head]
 
-        <!-- Font Awesome Pro -->
-        <script src="https://kit.fontawesome.com/8f2b749415.js"></script>
-
         <!-- Google Fonts: Cinczel | Lato | PT Serif -->
         <link href="https://fonts.googleapis.com/css?family=Cinzel:700,900%7CLato:400,400i,900,900i%7CPT+Serif" rel="stylesheet">
+
+        <!-- Font Awesome Pro (SVG) | Latest -->
+        <script src="https://kit.fontawesome.com/8f2b749415.js" crossorigin="anonymous"></script>
 
         <script>
         /**
@@ -39,7 +40,6 @@ $[tag.html.open]
 
         <script>
         $(function() {
-
             /**
              * Create darkened overlay behind jQuery UI dialogs.
              * Has to be in `<head>` to load in the right order.
@@ -58,7 +58,6 @@ $[tag.html.open]
              * Has to be in `<head>` to load in the right order.
              */
             (function updateDialogDimensions() {
-
                 function onDialogOpen(selector, options) {
                     $(document).on('dialogopen', selector, function() {
                         $(this).dialog(options);
@@ -75,9 +74,7 @@ $[tag.html.open]
                 onDialogOpen('#forward-container', { width: 420 });
                 onDialogOpen('#copy-link-container', { height: 300 });
                 onDialogOpen('#edit_money', { width: 500, height: 375, draggable: true });
-
             })();
-
         });
         </script>
 
@@ -92,25 +89,27 @@ $[tag.html.open]
         </script>
     </head>
     <body>
+
         {if $[maintenance_mode]}
             <div class="maintenance-header">
                 {if $[can.disable_maintenance]}<p>Finished with maintenance? $[disable_maintenance_link].</p>{/if}
             </div>
         {/if}
 
-        <!-- BEGIN FORUM WRAPPER -->
+        <!-- Forum Wrapper -->
         <div id="wrapper" class="ui-helper-clearfix">
 
-            <!-- BEGIN NAVIGATION -->
+            <!-- Primary Navigation -->
             <nav aria-labelledby="primary-navigation">
+
+                <!-- Label for this navigation; read by screen readers -->
+                <h2 id="primary-navigation" class="visually-hidden">Primary Navigation</h2>
 
                 <!-- Links for keyboard users to skip to content -->
                 <a id="navigation-skip" href="#content" accesskey="s" class="visually-hidden" title="Skip Navigation">Skip Navigation</a>
                 <a href="#" accesskey="d" title="Open Menu" onclick="proboards.hotkeys.activate(Keys.d); return false;"></a>
 
-                <!-- Label for this navigation; read by screen readers -->
-                <h2 id="primary-navigation" class="visually-hidden">Primary Navigation</h2>
-
+                <!-- Menu -->
                 <div id="navigation-menu">
                     <ul>
                         <!--
@@ -171,13 +170,17 @@ $[tag.html.open]
                     </ul>
                 </div>
             </nav>
-            <!-- END NAVIGATION -->
+            <!-- / Primary Navigation -->
 
-            <!-- BEGIN HEADER -->
+            <!-- Header -->
             <header>
                 <a href="/" target="_parent" title="Home">
                     <div class="banner-container">
                         <div class="banner">
+                            <!--
+                              NOTE: Update the `<h1>` below with the forum title and the `<h2>` with
+                                    a subtitle, or remove it completely.
+                              -->
                             <h1 class="banner__head">
                                 F<span class="banner__head--eight">A</span>D<span class="banner__head--eight">E</span>S
                             </h1>
@@ -186,18 +189,18 @@ $[tag.html.open]
                     </div>
                 </a>
             </header>
-            <!-- END HEADER -->
+            <!-- / Header -->
 
             <!-- Only show Welcome Section on Home page -->
             {if $[route.name] == 'home'}
 
-                <!-- BEGIN WELCOME SECTION -->
+                <!-- Welcome Section -->
                 <section class="welcome-section" aria-labelledby="welcome">
 
                     <!-- Label for this section; read by screen readers -->
-                    <h2 id="welcome" class="visually-hidden">Welcome to Fades the Fire</h2>
+                    <h2 id="welcome" class="visually-hidden">Welcome to $[forum.name]</h2>
 
-                    <!-- BEGIN SLIDE NAVIGATION -->
+                    <!-- Slide Navigation -->
                     <div class="welcome-section__navigation">
                         <button id="js-prev-arrow" title="Previous Slide" class="welcome-section__navigation-arrow welcome-section__navigation-arrow--left">
                             <i class="fal fa-arrow-left" aria-hidden="true"></i>
@@ -206,29 +209,40 @@ $[tag.html.open]
                             <i class="fal fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <!-- END SLIDE NAVIGATION -->
+                    <!-- / Slide Navigation -->
 
-                    <!-- BEGIN SLIDES -->
-                    <!-- Containing div needed for slider script -->
+                    <!-- Slides -->
+                    <!--
+                      NOTE: Containing div needed for slider script
+                      -->
                     <div>
 
-                        <!-- BEGIN SLIDE 1 -->
+                        <!-- Slide 1 -->
                         <div class="welcome-section__slide welcome-section__slide--active">
 
-                            <!-- BEGIN INTRO -->
+                            <!-- Intro -->
                             <div class="welcome-section__col">
+                                <!--
+                                  NOTE: Shows the current user (you) their avatar.
+                                  -->
                                 <div class="welcome-section__box welcome-section__box--squared">
                                     $[current_user.avatar_medium]
                                 </div>
 
-                                <!-- `aria-label`, `role`, and `tabindex` attributes required to make scrollable content focusable -->
+                                <!--
+                                  NOTE: Update the paragraph below with three to four sentences introducing
+                                        your forum. Update the `aria-label` with a relevant note about this section.
+
+                                        `aria-label`, `role`, and `tabindex` attributes are required to make
+                                        scrollable content focusable with keyboard navigation.
+                                  -->
                                 <div class="welcome-section__text" aria-label="An introductory paragraph about this roleplay." role="region" tabindex="0">
-                                    <p><span class="welcome-section__text--prefix">Fades the Fire.</span> Soufflé lemon drops cake icing jelly beans marzipan. Sesame snaps pudding sweet roll chocolate gummies. Fruitcake dragée jelly caramels sugar plum jujubes halvah. Sugar plum jelly beans bear claw donut soufflé. Tootsie roll icing sweet roll. Halvah tootsie roll toffee sweet muffin gummi bears tart sugar plum cheesecake.</p>
+                                    <p><span class="welcome-section__text--prefix">$[forum.name]</span> Soufflé lemon drops cake icing jelly beans marzipan. Sesame snaps pudding sweet roll chocolate gummies. Fruitcake dragée jelly caramels sugar plum jujubes halvah. Sugar plum jelly beans bear claw donut soufflé. Tootsie roll icing sweet roll. Halvah tootsie roll toffee sweet muffin gummi bears tart sugar plum cheesecake.</p>
                                 </div>
                             </div>
-                            <!-- END INTRO -->
+                            <!-- / Intro -->
 
-                            <!-- BEGIN STAFF AVATARS -->
+                            <!-- Staff Avatars -->
                             <!--
                               NOTE: Supports as few as one staff avatar, or as many as five; with five
                                     avatars, only three "important links" should be used.
@@ -244,9 +258,9 @@ $[tag.html.open]
                                     <img src="https://via.placeholder.com/50x70/1f171d/524a4e" alt="">
                                 </a>
                             </div>
-                            <!-- END STAFF AVATARS -->
+                            <!-- / Staff Avatars -->
 
-                            <!-- BEGIN IMPORTANT LINKS -->
+                            <!-- Important Links -->
                             <!--
                               NOTE: Supports as few as three links, or as many as six; with six links, only
                                     one to three staff avatars should be used.
@@ -261,15 +275,17 @@ $[tag.html.open]
                                     <li><a href="#" target="_parent">Flexitarian Forage</a></li>
                                 </ol>
                             </div>
-                            <!-- END IMPORTANT LINKS -->
+                            <!-- / Important Links -->
                         </div>
-                        <!-- END SLIDE 1 -->
+                        <!-- / Slide 1 -->
 
-                        <!-- BEGIN SLIDE 2 -->
+                        <!-- Slide 2 -->
                         <div class="welcome-section__slide">
 
-                            <!-- BEGIN EVENTS -->
-                            <!-- Update the date below to reflect when the update has been shared -->
+                            <!-- Events -->
+                            <!--
+                              NOTE: Update the date below to reflect when the update has been shared.
+                              -->
                             <div class="welcome-section__col">
                                 <div class="welcome-section__box welcome-section__box--squared">
                                     <p class="welcome-section__event">
@@ -278,14 +294,17 @@ $[tag.html.open]
                                     </p>
                                 </div>
 
-                                <!-- `aria-label`, `role`, and `tabindex` attributes required to make scrollable content focusable -->
+                                <!--
+                                  NOTE: `aria-label`, `role`, and `tabindex` attributes are required to make
+                                        scrollable content focusable with keyboard navigation.
+                                  -->
                                 <div class="welcome-section__text" aria-label="Recent updates to this site." role="region" tabindex="0">
                                     <p><span class="welcome-section__text--prefix">Site Update.</span> Oat cake dragée bonbon jelly beans ice cream pie donut. Carrot cake sugar plum brownie dessert sweet sweet carrot cake chocolate bar lemon drops. Fruitcake chocolate caramels chocolate topping jujubes cheesecake cookie oat cake.Tootsie roll icing sweet roll. Halvah tootsie roll toffee sweet muffin gummi bears tart sugar plum cheesecake.</p>
                                 </div>
                             </div>
-                            <!-- END EVENTS -->
+                            <!-- / Events -->
 
-                            <!-- BEGIN FEATURED -->
+                            <!-- Featured -->
                             <!--
                               NOTE: Supports as few as two images, or as many as four.
                                     Two images = 328x70px
@@ -303,15 +322,15 @@ $[tag.html.open]
                                     <img src="https://via.placeholder.com/206x70/1f171d/524a4e" alt="">
                                 </a>
                             </div>
-                            <!-- END FEATURED -->
+                            <!-- / Featured -->
 
                         </div>
-                        <!-- END SLIDE 2 -->
+                        <!-- / Slide 2 -->
 
-                        <!-- BEGIN SLIDE 3 -->
+                        <!-- Slide 3 -->
                         <div class="welcome-section__slide">
 
-                            <!-- BEGIN GROUPS -->
+                            <!-- Groups -->
                             <!-- Supports as many as five groups, or as few as two -->
                             <div class="welcome-section__group">
                                 <p class="welcome-section__group-title">Group 1 Name</p>
@@ -348,20 +367,20 @@ $[tag.html.open]
                                     <span>37</span> Total
                                 </p>
                             </div>
-                            <!-- END GROUPS -->
+                            <!-- / Groups -->
 
                         </div>
-                        <!-- END SLIDE 3 -->
+                        <!-- / Slide 3 -->
 
                     </div>
-                    <!-- END SLIDES -->
+                    <!-- / Slides -->
 
                 </section>
-                <!-- END WELCOME SECTION -->
+                <!-- / Welcome Section -->
 
             {/if}
 
-            <!-- BEGIN MAIN CONTENT -->
+            <!-- Main Content -->
             <main id="content">
 
                 <!-- Required variable: contains PB scripts and ads -->
@@ -369,44 +388,30 @@ $[tag.html.open]
 
                 {if $[notice]}
 
-                    <!-- BEGIN NOTICE CONTAINER -->
+                    <!-- Notice -->
                     <div class="container">
-
-                        <!-- BEGIN TITLE BAR -->
-                        <div class="title-bar">
-                            <h2>$[notice.title]</h2>
-                        </div>
-                        <!-- END TITLE BAR -->
-
-                        <!-- BEGIN NOTICE MESSAGE -->
-                        <div class="content">
-                            $[notice.message]
-                        </div>
-                        <!-- END NOTICE MESSAGE -->
-
+                        <div class="title-bar"><h2>$[notice.title]</h2></div>
+                        <div class="content">$[notice.message]</div>
                     </div>
-                    <!-- END NOTICE CONTAINER -->
+                    <!-- / Notice -->
 
                 {/if}
 
                 {if $[navigation.tree]}
 
-                    <!-- BEGIN NAVIGATION TREE -->
+                    <!-- Navigation Tree -->
                     <div id="navigation-tree">
-
                         $[navigation.tree]
-
                     </div>
-                    <!-- END NAVIGATION TREE -->
+                    <!-- / Navigation Tree -->
 
                 {/if}
 
                 $[content]
 
                 $[shoutbox]
-
             </main>
-            <!-- END MAIN CONTENT -->
+            <!-- / Main Content -->
 
         </div>
 
@@ -432,14 +437,13 @@ $[tag.html.open]
 
         <!--
           NOTE: These are the scripts that control the custom behavior of the theme.
-                Individual behaviors are wrapped in immediately invoked function
-                expressions. Tread carefully, as JavaScript can be delicate.
-                Additional scripts can be found in the layout templates they affect,
-                such as the Thread and Post lists.
+                Individual behaviors are wrapped in immediately invoked function expressions.
+                Tread carefully, as JavaScript can be delicate. Additional scripts can be
+                found in the layout templates they affect, such as the Thread and Post lists.
           -->
         <script>
         $(function() {
-            // Add lang attribute to `<html>` element for accessibility
+            // Add lang attribute to `<html>` element to improve accessibility
             (function addLang() {
                 $('html').prop('lang', 'en-us');
             })();
@@ -450,6 +454,7 @@ $[tag.html.open]
                 $('iframe#ad-desktop-top[height="50"]').parent().addClass('ad-banner--top-50');
                 $('iframe#ad-desktop-top[height="60"]').parent().addClass('ad-banner--top-60');
                 $('iframe#ad-desktop-top[height="90"]').parent().addClass('ad-banner--top-90');
+                $('iframe#ad-desktop-top[height="250"]').parent().addClass('ad-banner--top-250');
                 $('iframe#ad-desktop-bottom').parent().attr('class', 'ad-banner ad-banner--bottom');
             })();
 

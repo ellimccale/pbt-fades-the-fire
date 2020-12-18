@@ -1,9 +1,9 @@
-<!-- BEGIN GROUPS CONTAINER -->
+<!-- Groups Container -->
 <div class="show-user__container">
 
     {if $[group]}
 
-        <!-- BEGIN GROUPS LIST -->
+        <!-- Groups List -->
         <div class="content-box content-box--first">
             <table class="groups list">
                 <colgroup>
@@ -39,11 +39,11 @@
                 </tbody>
             </table>
         </div>
-        <!-- END GROUPS LIST -->
+        <!-- / Groups List -->
 
     {else}
 
-        <!-- BEGIN NO GROUPS -->
+        <!-- No Groups -->
         <div class="content-box content-box--first">
             <p id="$[no_groups_message_id]">
                 {if $[user.id] == $[current_user.id]}
@@ -53,13 +53,13 @@
                 {/if}
             </p>
         </div>
-        <!-- END NO GROUPS -->
+        <!-- / No Groups -->
 
     {/if}
 
     {if $[other_group]}
 
-        <!-- BEGIN GROUPS LIST -->
+        <!-- Available Groups List -->
         <div class="content-box">
             <table class="groups list">
                 <colgroup>
@@ -95,9 +95,9 @@
                 </tbody>
             </table>
         </div>
-        <!-- END GROUPS LIST -->
+        <!-- / Available Groups List -->
 
     {/if}
 
 </div>
-<!-- END GROUPS CONTAINER -->
+<!-- / Groups Container -->

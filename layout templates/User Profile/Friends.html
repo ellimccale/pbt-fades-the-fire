@@ -1,13 +1,13 @@
-<!-- BEGIN FRIENDS CONTAINER -->
+<!-- Friends Container -->
 <div class="show-user__container">
 
-    <!-- BEGIN FRIENDS HEADING -->
+    <!-- Friends Info -->
     <div class="content-box content-box--first">
         <p style="text-align: left;"><span class="friends-stats">($[total_online]) Online &nbsp;&nbsp; ($[total_offline]) Offline</span> Friends are members who follow each other.</p>
     </div>
-    <!-- END FRIENDS HEADING -->
+    <!-- / Friends Info -->
 
-    <!-- BEGIN FRIENDS LIST -->
+    <!-- Friends List -->
     {if $[online_friend]}
         <div class="friends content-box">
             {foreach $[online_friend]}
@@ -29,9 +29,9 @@
             $[view_friends_link]
         </div>
     {/if}
-    <!-- END FRIENDS LIST -->
+    <!-- / Friends List -->
 
-    <!-- BEGIN SUGGESTED FRIENDS -->
+    <!-- Suggested Friends -->
     {if $[suggested_user]}
         <div class="content-box clear">
             <p class="bold pad-bottom">Other members you might know...</p>
@@ -43,7 +43,7 @@
             {/foreach}
         </div>
     {/if}
-    <!-- END SUGGESTED FRIENDS -->
+    <!-- / Suggested Friends -->
 
 </div>
-<!-- END FRIENDS CONTAINER -->
+<!-- / Friends Container -->

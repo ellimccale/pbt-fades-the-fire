@@ -1,6 +1,6 @@
 {foreach $[conversation]}
 
-    <!-- BEGIN CONVERSATIONS -->
+    <!-- Conversations -->
     <tr id="$[conversation.content_id]" class="$[conversation.content_class]">
         <td class="main clickable">
             <div class="name">
@@ -30,16 +30,16 @@
         </td>
     </tr>
     <tr class="spacer"><td colspan="6"></td></tr>
-    <!-- END CONVERSATIONS -->
+    <!-- / Conversations -->
 
 {/foreach}
 
 {if !$[conversation]}
 
-    <!-- BEGIN NO CONVERSATIONS -->
+    <!-- No Conversations -->
     <tr class="conversation item item--no-conversations">
         <td class="center" colspan="6">No messages were found</td>
     </tr>
-    <!-- END NO CONVERSATIONS -->
+    <!-- / No Conversations -->
 
 {/if}

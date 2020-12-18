@@ -1,26 +1,23 @@
-<!-- BEGIN USER PROFILE -->
+<!-- User Profile Container -->
 <div class="container show-user">
 
-    <!-- BEGIN TITLE BAR -->
+    <!-- Title Bar -->
     <div class="title-bar">
         <h2>$[user.name] (@$[user.username])</h2>
     </div>
-    <!-- END TITLE BAR -->
+    <!-- / Title Bar -->
 
-    <!-- BEGIN TABS -->
+    <!-- User Profile Tabs -->
     <div class="ui-tabMenu">
         <ul class="ui-helper-clearfix">
             {foreach $[menu]}<li{if $[menu.active]} class="ui-active"{/if}><a href="$[menu.href]">$[menu.text]</a></li>{/foreach}
         </ul>
     </div>
-    <!-- END TABS -->
+    <!-- / User Profile Tabs -->
 
-    <!-- BEGIN CONTENT -->
+    <!-- User Profile Content -->
     <div class="content">
-
-        <!-- BEGIN USER PROFILE -->
         <div class="show-user__profile">
-
             {if $[user.avatar]}
                 $[user.avatar]
             {/if}
@@ -45,7 +42,6 @@
             </div>
 
             <div class="show-user__controls">
-
                 {if $[edit_profile_button]}
                     <a href="$[edit_profile_button.href]" class="$[edit_profile_button.class]" title="Edit Profile">
                         <i class="fal fa-edit" aria-hidden="true"></i>
@@ -71,22 +67,17 @@
                         $[options]
                     {/if}
                 {/if}
-
             </div>
         </div>
-        <!-- END USER PROFILE -->
 
-        <!-- BEGIN TAB CONTENT -->
         <div class="ui-helper-clearfix">
             $[content]
         </div>
-        <!-- END TAB CONTENT -->
-
     </div>
-    <!-- END CONTENT -->
+    <!-- / User Profile Content -->
 
 </div>
-<!-- END USER PROFILE -->
+<!-- / User Profile Container -->
 
 <script>
 $(function() {

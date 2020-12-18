@@ -1,7 +1,7 @@
-<!-- BEGIN MESSAGES CONTAINER -->
+<!-- Message Container -->
 <div class="container messages">
 
-    <!-- BEGIN TITLE BAR -->
+    <!-- Title Bar -->
     <div class="title-bar">
         {if $[reply_button]}
             <ul class="controls"><li>$[reply_button]</li></ul>
@@ -9,9 +9,9 @@
 
         <h2>$[conversation.subject]</h2>
     </div>
-    <!-- END TITLE BAR -->
+    <!-- / Title Bar -->
 
-    <!-- BEGIN CONTROL BAR -->
+    <!-- Control Bar -->
     <div class="control-bar ui-helper-clearfix $[scroll_class]">
         $[search]
 
@@ -21,9 +21,9 @@
 
         $[pagination]
     </div>
-    <!-- END CONTROL BAR -->
+    <!-- / Control Bar -->
 
-    <!-- BEGIN MESSAGE LIST -->
+    <!-- Message List -->
     <div class="content">
         <div class="participants ui-helper-clearfix">
             $[labels]
@@ -38,14 +38,13 @@
 
         {if !$[quick_reply]}
             {if $[bottom_reply_button]}
-                <div class="reply_button pad-all-double">$[bottom_reply_button]<br class="clear" /></div>
+                <div class="reply_button pad-all-double">$[bottom_reply_button]<br class="clear"></div>
             {/if}
         {/if}
-
     </div>
-    <!-- END MESSAGE LIST -->
+    <!-- / Message List -->
 
 </div>
-<!-- END MESSAGES CONTAINER -->
+<!-- / Message Container -->
 
 $[quick_reply]

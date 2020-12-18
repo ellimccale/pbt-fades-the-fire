@@ -1,6 +1,6 @@
 {foreach $[message]}
 
-    <!-- BEGIN SUMMARY -->
+    <!-- Message Summary -->
     <tr id="$[message.content_id]" class="$[message.content_class]">
         <td class="content">
             <div class="content-head">
@@ -14,18 +14,18 @@
             </div>
         </td>
     </tr>
-    <!-- END SUMMARY -->
+    <!-- / Message Summary -->
 
 {/foreach}
 
 {if !$[message]}
 
-    <!-- BEGIN NO MESSAGES -->
+    <!-- No Messages -->
     <tr class="message item item--no-messages">
         <td class="center">
-            <div class="message">No Messages were found.</div>
+            <div class="message">No messages were found.</div>
         </td>
     </tr>
-    <!-- END NO MESSAGES -->
+    <!-- / No Messages -->
 
 {/if}

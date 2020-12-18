@@ -1,6 +1,6 @@
 {foreach $[thread]}
 
-    <!-- BEGIN THREADS -->
+    <!-- Threads -->
     <tr id="$[thread.content_id]" class="$[thread.content_class]">
         <td class="main clickable">
             <div class="name">
@@ -33,16 +33,16 @@
         </td>
     </tr>
     <tr class="spacer"><td colspan="6"></td></tr>
-    <!-- END THREADS -->
+    <!-- / Threads -->
 
 {/foreach}
 
 {if !$[thread]}
 
-    <!-- BEGIN NO THREADS -->
+    <!-- No Threads -->
     <tr class="thread item item--no-threads">
         <td class="center" colspan="6">No threads were found.</td>
     </tr>
-    <!-- END NO THREADS -->
+    <!-- / No Threads -->
 
 {/if}
